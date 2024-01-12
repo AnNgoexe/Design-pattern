@@ -1,0 +1,35 @@
+package behavioralpattern.templatemethod.concreteclass;
+
+import behavioralpattern.templatemethod.abstractclass.SocialNetwork;
+
+public class Facebook extends SocialNetwork {
+    public Facebook(String userName, String password) {
+        this.userName = userName;
+        this.password = password;
+    }
+
+    public boolean logIn(String userName, String password) {
+        System.out.println("\nChecking user's parameters");
+        System.out.println("Name: " + this.userName);
+        System.out.print("Password: ");
+        for (int i = 0; i < this.password.length(); i++) {
+            System.out.print("*");
+        }
+        System.out.println("\n\nLogIn success on Facebook");
+        return true;
+    }
+
+    public boolean sendData(byte[] data) {
+        boolean messagePosted = true;
+        if (messagePosted) {
+            System.out.println("Message: '" + new String(data) + "' was posted on Facebook");
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void logOut() {
+        System.out.println("User: '" + this.userName + "' was logged out from Facebook");
+    }
+}
